@@ -31,13 +31,13 @@ namespace SHSU_ELO_Project
         private void addPlayerButton_Click(object sender, EventArgs e)
         {
 
-            var api = RiotApi.GetInstance("RGAPI-C3673AEB-F562-4992-9629-3C47741A6A86");
+            //var api = RiotApi.GetInstance("RGAPI-C3673AEB-F562-4992-9629-3C47741A6A86");
             errorLabel.Text = "";
 
             try
             {
 
-                var summoner = api.GetSummoner(RiotSharp.Region.na, playerUsernameBox.Text);
+                //var summoner = api.GetSummoner(RiotSharp.Region.na, playerUsernameBox.Text);
 
                 try
                 {

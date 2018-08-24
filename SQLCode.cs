@@ -419,6 +419,16 @@ namespace SHSU_ELO_Project
             mysql_conn.Close();
         }
 
+        public void delete5v5Team(string teamName)
+        {
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            mysql_cmd.CommandText = "UPDATE teams5v5 SET isDeleted = '" + 1 + "'" + "WHERE teamName = '" + teamName + "'; UPDATE teams5v5 SET teamName = '' WHERE teamName = '" + teamName + "'";
+            mysql_cmd.ExecuteNonQuery();
+            mysql_conn.Close();
+        }
+
         public void add3v3Team(int id, string teamName, string coachName, string p1, string p2, string p3)
         {
             mysql_conn = new MySqlConnection(connectionString);
@@ -426,6 +436,16 @@ namespace SHSU_ELO_Project
             mysql_cmd = mysql_conn.CreateCommand();
             mysql_cmd.CommandText = "INSERT INTO teams3v3 (id, teamName, coachName, p1username, p2username, p3username)" +
                 "VALUES ('" + id + "', '" + teamName + "', '" + coachName + "', '" + p1 + "', '" + p2 + "', '" + p3 + "')";
+            mysql_cmd.ExecuteNonQuery();
+            mysql_conn.Close();
+        }
+
+        public void delete3v3Team(string teamName)
+        {
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            mysql_cmd.CommandText = "UPDATE teams3v3 SET isDeleted = '" + 1 + "'" + "WHERE teamName = '" + teamName + "'; UPDATE teams3v3 SET teamName = '' WHERE teamName = '" + teamName + "'";
             mysql_cmd.ExecuteNonQuery();
             mysql_conn.Close();
         }
@@ -457,7 +477,7 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT teamName FROM teams5v5"; // WHERE id = " + id;
+            mysql_cmd.CommandText = "SELECT teamName FROM teams5v5 WHERE isDeleted = '" + 0 + "'"; // WHERE id = " + id;
             mysql_datareader = mysql_cmd.ExecuteReader();
             while (mysql_datareader.Read())
             {
@@ -476,7 +496,7 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT teamName FROM teams3v3"; // WHERE id = " + id;
+            mysql_cmd.CommandText = "SELECT teamName FROM teams3v3 WHERE isDeleted = '" + 0 + "'"; // WHERE id = " + id;
             mysql_datareader = mysql_cmd.ExecuteReader();
             while (mysql_datareader.Read())
             {

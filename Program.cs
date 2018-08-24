@@ -21,11 +21,10 @@ namespace SHSU_ELO_Project
                 MessageBox.Show("No connection to database.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             }
             // Check for latest version
-            else if (sql.checkVersion() != 3)
+            else if (sql.checkVersion() != 4)
             {
                 MessageBox.Show("Your client is not the latest version. Please update to the latest version of the software.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
             }
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());

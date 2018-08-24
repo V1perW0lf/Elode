@@ -106,5 +106,37 @@ namespace SHSU_ELO_Project
             Application.Exit();
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (teamListBox.CheckedItems.Count >= 1)
+            {
+                //View3v3Team view = new View3v3Team();
+                //view.Show();
+                foreach (string s in teamListBox.CheckedItems)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete the " + s + " team?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        sql.delete5v5Team(s);
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        //Do nothing
+                    }
+                }
+                teamListBox.Items.Clear();
+                List<string> teamList = sql.populate5v5TeamListBox();
+                for (int i = 0; i < teamList.Count; i++)
+                {
+                    teamListBox.Items.Add(teamList[i]);
+                }
+
+            }
+            else if (teamListBox.CheckedItems.Count < 1)
+            {
+                errorLabel.Text = "Please select at least one team";
+                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 34);
+            }
+        }
     }
 }

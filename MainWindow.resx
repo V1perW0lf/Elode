@@ -122,12 +122,10 @@
 for tracking skill among Esports Athletes 
 since 2017. Select any battle mode to pit two
 teams or players against one another.  
-Adding teams can be done inside either 3v3 
-or 5v5 and if you wish to add individual 
-players you can do so in the 1v1 battle option.
-Once a player is added into a team or
-individually, you do not have to worry about 
-adding them individually again.</value>
+You must add individual players through the
+1v1 battle screen before adding them to 
+teams. Create teams by clicking on either 
+3v3 or 5v5 battle.</value>
   </data>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
