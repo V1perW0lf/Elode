@@ -69,10 +69,10 @@ namespace SHSU_ELO_Project
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
             }
-            else if (sql.findTeam3v3(teamNameBox.Text) == teamNameBox.Text)
+            else if (sql.findTeam3v3(teamNameBox.Text).ToLower() == teamNameBox.Text.ToLower())
             {
                 errorLabel.Text = "A team with that name already exists";
-                errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 433);
+                errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
             }
             else if (playerListBox.CheckedItems.Count != 3)
