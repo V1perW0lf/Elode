@@ -455,7 +455,8 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "INSERT INTO players (id, username, elo)" + "VALUES ('" + id + "', '" + player + "', '" + 1000 + "')";
+            // Default value for this is 1000. Is currently 960 due to new players missing a LAN
+            mysql_cmd.CommandText = "INSERT INTO players (id, username, elo)" + "VALUES ('" + id + "', '" + player + "', '" + 960 + "')";
             mysql_cmd.ExecuteNonQuery();
             mysql_conn.Close();
         }
@@ -515,7 +516,7 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT username FROM players"; // WHERE id = " + id;
+            mysql_cmd.CommandText = "SELECT username FROM players ORDER BY elo DESC, username ASC";
             mysql_datareader = mysql_cmd.ExecuteReader();
             while (mysql_datareader.Read())
             {

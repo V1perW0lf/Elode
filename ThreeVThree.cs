@@ -49,12 +49,12 @@ namespace SHSU_ELO_Project
             else if (teamListBox.CheckedItems.Count < 1)
             {
                 errorLabel.Text = "Please select one team";
-                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 34);
+                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 466);
             }
             else
             {
                 errorLabel.Text = "Only one teams's Elo can be viewed at a time";
-                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 34);
+                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 466);
             }
         }
 
@@ -87,12 +87,12 @@ namespace SHSU_ELO_Project
             else if (teamListBox.CheckedItems.Count < 2)
             {
                 errorLabel.Text = "Please select two teams";
-                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 34);
+                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 466);
             }
             else
             {
                 errorLabel.Text = "Only two teams can battle at once";
-                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 34);
+                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 466);
             }
         }
 
@@ -136,7 +136,7 @@ namespace SHSU_ELO_Project
             else if (teamListBox.CheckedItems.Count < 1)
             {
                 errorLabel.Text = "Please select at least one team";
-                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 34);
+                errorLabel.Location = new Point(((viewTeamButton.Location.X + viewTeamButton.Size.Width + addTeamButton.Location.X) / 2) - errorLabel.Size.Width / 2, 466);
             }
 
         }

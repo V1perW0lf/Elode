@@ -15,6 +15,7 @@ namespace SHSU_ELO_Project
     {
 
         string coachName = "";
+        string space = " ";
         SQLCode sql = new SQLCode();
 
         public Add5v5Team()
@@ -25,7 +26,16 @@ namespace SHSU_ELO_Project
             List<string> playerList = sql.populatePlayerBox();
             for (int i = 0; i < playerList.Count; i++)
             {
-                playerListBox.Items.Add(playerList[i]);
+                //DO THIS BETTER PLEASE
+                if (sql.findElo(playerList[i]).ToString().Length < 4)
+                {
+                    space = "   ";
+                }
+                else
+                {
+                    space = " ";
+                }
+                playerListBox.Items.Add(sql.findElo(playerList[i]) + space + playerList[i]);
             }
         }
 
@@ -205,25 +215,35 @@ namespace SHSU_ELO_Project
                         string p5 = "";
                         foreach (string s in playerListBox.CheckedItems)
                         {
+                            string removedElo = "";
+                            //SUPER HACKY PLEASE FIX
+                            if (s.Contains("   "))
+                            {
+                                removedElo = s.Substring(s.IndexOf("   ") + 3);
+                            }
+                            else
+                            {
+                                removedElo = s.Substring(s.IndexOf(" ") + 1);
+                            }
                             if (p1 == "")
                             {
-                                p1 = s;
+                                p1 = removedElo;
                             }
                             else if (p2 == "")
                             {
-                                p2 = s;
+                                p2 = removedElo;
                             }
-                            else if(p3 == "")
+                            else if (p3 == "")
                             {
-                                p3 = s;
+                                p3 = removedElo;
                             }
-                            else if(p4 == "")
+                            else if (p4 == "")
                             {
-                                p4 = s;
+                                p4 = removedElo;
                             }
-                            else if(p5 == "")
+                            else if (p5 == "")
                             {
-                                p5 = s;
+                                p5 = removedElo;
                             }
                         }
                         sql.add5v5Team(countTeam, teamNameBox.Text, coachNameBox.Text, p1, p2, p3, p4, p5);

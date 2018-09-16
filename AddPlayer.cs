@@ -41,11 +41,19 @@ namespace SHSU_ELO_Project
 
                 try
                 {
-                    int count = sql.count("players", "username", "");
-                    sql.addPlayer(playerUsernameBox.Text, count);
+                    if(playerUsernameBox.Text.Contains(" "))
+                    {
+                        errorLabel.Text = "Usernames cannot contain a space! Use _ instead";
+                        errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
+                    }
+                    else
+                    {
+                        int count = sql.count("players", "username", "");
+                        sql.addPlayer(playerUsernameBox.Text, count);
 
-                    errorLabel.Text = "Player successfully added";
-                    errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
+                        errorLabel.Text = "Player successfully added";
+                        errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
+                    }
                 }
                 catch
                 {

@@ -14,6 +14,7 @@ namespace SHSU_ELO_Project
     {
 
         SQLCode sql = new SQLCode();
+        string space = " ";
 
         public OneVOne()
         {
@@ -21,7 +22,16 @@ namespace SHSU_ELO_Project
             List<string> playerList = sql.populatePlayerBox();
             for (int i = 0; i < playerList.Count; i++)
             {
-                playerListBox.Items.Add(playerList[i]);
+                //DO THIS BETTER PLEASE
+                if(sql.findElo(playerList[i]).ToString().Length < 4)
+                {
+                    space = "   ";
+                }
+                else
+                {
+                    space = " ";
+                }
+                playerListBox.Items.Add(sql.findElo(playerList[i]) + space + playerList[i]);
             }
         }
 
