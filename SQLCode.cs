@@ -450,13 +450,13 @@ namespace SHSU_ELO_Project
             mysql_conn.Close();
         }
 
-        public void addPlayer(string player, int id)
+        public void addPlayer(string player, int id, int elo)
         {
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
             // Default value for this is 1000. Is currently 960 due to new players missing a LAN
-            mysql_cmd.CommandText = "INSERT INTO players (id, username, elo)" + "VALUES ('" + id + "', '" + player + "', '" + 960 + "')";
+            mysql_cmd.CommandText = "INSERT INTO players (id, username, elo)" + "VALUES ('" + id + "', '" + player + "', '" + elo + "')";
             mysql_cmd.ExecuteNonQuery();
             mysql_conn.Close();
         }
@@ -526,6 +526,42 @@ namespace SHSU_ELO_Project
             mysql_datareader.Close();
             mysql_conn.Close();
             return listOfPlayers;
+        }
+
+        public List<string> populateEloBox()
+        {
+            string name = "";
+            List<string> listOfPlayers = new List<string>();
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            mysql_cmd.CommandText = "SELECT elo FROM players ORDER BY elo DESC, username ASC";
+            mysql_datareader = mysql_cmd.ExecuteReader();
+            while (mysql_datareader.Read())
+            {
+                name = mysql_datareader.GetString(0);
+                listOfPlayers.Add(name);
+            }
+            mysql_datareader.Close();
+            mysql_conn.Close();
+            return listOfPlayers;
+        }
+
+        public int newPlayerElo()
+        {
+            int elo = 0;
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            mysql_cmd.CommandText = "SELECT elo FROM newPlayerElo";
+            mysql_datareader = mysql_cmd.ExecuteReader();
+            while (mysql_datareader.Read())
+            {
+                elo = mysql_datareader.GetInt32(0);
+            }
+            mysql_datareader.Close();
+            mysql_conn.Close();
+            return elo;
         }
 
         public string read_data(string cmd)

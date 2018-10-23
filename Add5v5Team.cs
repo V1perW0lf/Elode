@@ -24,18 +24,19 @@ namespace SHSU_ELO_Project
             coachNameLabel.Hide();
             coachNameBox.Hide();
             List<string> playerList = sql.populatePlayerBox();
+            List<string> eloList = sql.populateEloBox();
             for (int i = 0; i < playerList.Count; i++)
             {
                 //DO THIS BETTER PLEASE
-                if (sql.findElo(playerList[i]).ToString().Length < 4)
+                /*if (sql.findElo(playerList[i]).ToString().Length < 4)
                 {
                     space = "   ";
                 }
                 else
                 {
                     space = " ";
-                }
-                playerListBox.Items.Add(sql.findElo(playerList[i]) + space + playerList[i]);
+                }*/
+                playerListBox.Items.Add(eloList[i] + space + playerList[i]);
             }
         }
 

@@ -49,7 +49,8 @@ namespace SHSU_ELO_Project
                     else
                     {
                         int count = sql.count("players", "username", "");
-                        sql.addPlayer(playerUsernameBox.Text, count);
+                        int elo = sql.newPlayerElo();
+                        sql.addPlayer(playerUsernameBox.Text, count, elo);
 
                         errorLabel.Text = "Player successfully added";
                         errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
