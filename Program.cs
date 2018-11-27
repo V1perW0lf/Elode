@@ -18,15 +18,15 @@ namespace SHSU_ELO_Project
             SQLCode sql = new SQLCode();
 
             // Check for valid connection
-            if(sql.isServerConnected() == false)
+            if(sql.isServerConnected() == true)
             {
-                MessageBox.Show("No connection to database.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+                MessageBox.Show("No connection to database.\nServer IP Address may need to be updated\nor the internet is out\nor the power is out", "Elode", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
             // Check for latest version
             else if (sql.checkVersion() != 11)
             {
-                if(MessageBox.Show("Your client is not the latest version. Please update to the latest version of the software.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.OK)
+                if(MessageBox.Show("Your client is not the latest version. Click \"OK\" to update to the latest version of the software.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     System.Diagnostics.Process.Start("https://drive.google.com/file/d/0B-YWY2xC-C_uSTZBWDBfZnV0OTA/view");
                 }
