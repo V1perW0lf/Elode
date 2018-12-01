@@ -18,7 +18,7 @@ namespace SHSU_ELO_Project
             SQLCode sql = new SQLCode();
 
             // Check for valid connection
-            if(sql.isServerConnected() == true)
+            if(sql.isServerConnected() == false)
             {
                 MessageBox.Show("No connection to database.\nServer IP Address may need to be updated\nor the internet is out\nor the power is out", "Elode", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
