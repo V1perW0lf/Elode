@@ -41,6 +41,8 @@
             this.p5Elo = new System.Windows.Forms.Label();
             this.coachLabel = new System.Windows.Forms.Label();
             this.coachElo = new System.Windows.Forms.Label();
+            this.teamLabel = new System.Windows.Forms.Label();
+            this.teamEloLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -173,11 +175,33 @@
             this.coachElo.TabIndex = 21;
             this.coachElo.Text = "coachElo";
             // 
+            // teamLabel
+            // 
+            this.teamLabel.AutoSize = true;
+            this.teamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamLabel.Location = new System.Drawing.Point(80, 95);
+            this.teamLabel.Name = "teamLabel";
+            this.teamLabel.Size = new System.Drawing.Size(112, 25);
+            this.teamLabel.TabIndex = 22;
+            this.teamLabel.Text = "teamLabel";
+            // 
+            // teamEloLabel
+            // 
+            this.teamEloLabel.AutoSize = true;
+            this.teamEloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamEloLabel.Location = new System.Drawing.Point(404, 95);
+            this.teamEloLabel.Name = "teamEloLabel";
+            this.teamEloLabel.Size = new System.Drawing.Size(90, 25);
+            this.teamEloLabel.TabIndex = 23;
+            this.teamEloLabel.Text = "teamElo";
+            // 
             // View5v5Team
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.teamEloLabel);
+            this.Controls.Add(this.teamLabel);
             this.Controls.Add(this.coachElo);
             this.Controls.Add(this.coachLabel);
             this.Controls.Add(this.p5Elo);
@@ -217,5 +241,7 @@
         private System.Windows.Forms.Label p5Elo;
         private System.Windows.Forms.Label coachLabel;
         private System.Windows.Forms.Label coachElo;
+        private System.Windows.Forms.Label teamLabel;
+        private System.Windows.Forms.Label teamEloLabel;
     }
 }

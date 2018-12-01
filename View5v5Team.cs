@@ -20,11 +20,15 @@ namespace SHSU_ELO_Project
         public View5v5Team()
         {
             InitializeComponent();
+            coachElo.Hide();
+            coachLabel.Hide();
         }
 
         private void View5v5Team_Load(object sender, EventArgs e)
         {
-            coachLabel.Text = sql.findCoach5v5(teamName);
+            //coachLabel.Text = sql.findCoach5v5(teamName);
+
+            teamLabel.Text = teamName;
 
             p1Label.Text = sql.findTeamMember5v5(teamName, "p1username");
             p2Label.Text = sql.findTeamMember5v5(teamName, "p2username");
@@ -38,7 +42,9 @@ namespace SHSU_ELO_Project
             p4Elo.Text = sql.findElo(p4Label.Text).ToString();
             p5Elo.Text = sql.findElo(p5Label.Text).ToString();
 
-            coachElo.Text = sql.findCoachElo(coachLabel.Text).ToString();
+            teamEloLabel.Text = ((sql.findElo(p1Label.Text) + sql.findElo(p2Label.Text) + sql.findElo(p3Label.Text) + sql.findElo(p4Label.Text) + sql.findElo(p5Label.Text)) / 5).ToString();
+
+            //coachElo.Text = sql.findCoachElo(coachLabel.Text).ToString();
         }
 
         private void backButton_Click(object sender, EventArgs e)

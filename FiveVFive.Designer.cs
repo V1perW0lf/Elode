@@ -34,6 +34,7 @@
             this.backButton = new System.Windows.Forms.Button();
             this.viewTeamButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // teamListBox
@@ -96,11 +97,22 @@
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 5;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(222, 12);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(143, 56);
+            this.deleteButton.TabIndex = 12;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // FiveVFive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.viewTeamButton);
             this.Controls.Add(this.backButton);
@@ -125,5 +137,6 @@
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button viewTeamButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

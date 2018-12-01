@@ -42,7 +42,7 @@
             this._1v1Button.Name = "_1v1Button";
             this._1v1Button.Size = new System.Drawing.Size(143, 56);
             this._1v1Button.TabIndex = 0;
-            this._1v1Button.Text = "1v1 Battle";
+            this._1v1Button.Text = "1v1 Battle and\r\nAdd Players\r\n";
             this._1v1Button.UseVisualStyleBackColor = true;
             this._1v1Button.Click += new System.EventHandler(this._1v1Button_Click);
             // 
@@ -82,9 +82,9 @@
             // 
             this.mainText.AutoSize = true;
             this.mainText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainText.Location = new System.Drawing.Point(10, 125);
+            this.mainText.Location = new System.Drawing.Point(12, 168);
             this.mainText.Name = "mainText";
-            this.mainText.Size = new System.Drawing.Size(564, 310);
+            this.mainText.Size = new System.Drawing.Size(551, 248);
             this.mainText.TabIndex = 11;
             this.mainText.Text = resources.GetString("mainText.Text");
             // 

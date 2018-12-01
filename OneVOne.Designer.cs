@@ -81,6 +81,7 @@
             // 
             // viewPlayerButton
             // 
+            this.viewPlayerButton.Enabled = false;
             this.viewPlayerButton.Location = new System.Drawing.Point(12, 12);
             this.viewPlayerButton.Name = "viewPlayerButton";
             this.viewPlayerButton.Size = new System.Drawing.Size(143, 56);

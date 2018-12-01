@@ -37,6 +37,8 @@
             this.p2Elo = new System.Windows.Forms.Label();
             this.p3Label = new System.Windows.Forms.Label();
             this.p1Elo = new System.Windows.Forms.Label();
+            this.teamLabel = new System.Windows.Forms.Label();
+            this.teamEloLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // backButton
@@ -129,11 +131,33 @@
             this.p1Elo.TabIndex = 22;
             this.p1Elo.Text = "p1Elo";
             // 
+            // teamLabel
+            // 
+            this.teamLabel.AutoSize = true;
+            this.teamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamLabel.Location = new System.Drawing.Point(80, 153);
+            this.teamLabel.Name = "teamLabel";
+            this.teamLabel.Size = new System.Drawing.Size(112, 25);
+            this.teamLabel.TabIndex = 34;
+            this.teamLabel.Text = "teamLabel";
+            // 
+            // teamEloLabel
+            // 
+            this.teamEloLabel.AutoSize = true;
+            this.teamEloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamEloLabel.Location = new System.Drawing.Point(404, 153);
+            this.teamEloLabel.Name = "teamEloLabel";
+            this.teamEloLabel.Size = new System.Drawing.Size(90, 25);
+            this.teamEloLabel.TabIndex = 35;
+            this.teamEloLabel.Text = "teamElo";
+            // 
             // View3v3Team
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.teamEloLabel);
+            this.Controls.Add(this.teamLabel);
             this.Controls.Add(this.coachElo);
             this.Controls.Add(this.coachLabel);
             this.Controls.Add(this.p3Elo);
@@ -146,9 +170,9 @@
             this.MaximizeBox = false;
             this.Name = "View3v3Team";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "View3v3Team";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.View3v3Team_FormClosed);
             this.Load += new System.EventHandler(this.View3v3Team_Load);
-            this.Text = "View3v3Team";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +189,7 @@
         private System.Windows.Forms.Label p2Elo;
         private System.Windows.Forms.Label p3Label;
         private System.Windows.Forms.Label p1Elo;
+        private System.Windows.Forms.Label teamLabel;
+        private System.Windows.Forms.Label teamEloLabel;
     }
 }

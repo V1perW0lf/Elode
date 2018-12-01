@@ -13,7 +13,7 @@ namespace SHSU_ELO_Project
 
         // location of the database
         readonly string connectionString = "server=50.24.236.179;database=shsuelo;uid=shsucamp;pwd=camppassword;connection timeout=2";
-
+        
         // Used to apply SQL commands to database
         MySqlCommand mysql_cmd;
 
@@ -419,6 +419,16 @@ namespace SHSU_ELO_Project
             mysql_conn.Close();
         }
 
+        public void delete5v5Team(string teamName)
+        {
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            mysql_cmd.CommandText = "UPDATE teams5v5 SET isDeleted = '" + 1 + "'" + "WHERE teamName = '" + teamName + "'; UPDATE teams5v5 SET teamName = '' WHERE teamName = '" + teamName + "'";
+            mysql_cmd.ExecuteNonQuery();
+            mysql_conn.Close();
+        }
+
         public void add3v3Team(int id, string teamName, string coachName, string p1, string p2, string p3)
         {
             mysql_conn = new MySqlConnection(connectionString);
@@ -430,12 +440,23 @@ namespace SHSU_ELO_Project
             mysql_conn.Close();
         }
 
-        public void addPlayer(string player, int id)
+        public void delete3v3Team(string teamName)
         {
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "INSERT INTO players (id, username, elo)" + "VALUES ('" + id + "', '" + player + "', '" + 1000 + "')";
+            mysql_cmd.CommandText = "UPDATE teams3v3 SET isDeleted = '" + 1 + "'" + "WHERE teamName = '" + teamName + "'; UPDATE teams3v3 SET teamName = '' WHERE teamName = '" + teamName + "'";
+            mysql_cmd.ExecuteNonQuery();
+            mysql_conn.Close();
+        }
+
+        public void addPlayer(string player, int id, int elo)
+        {
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            // Default value for this is 1000. Is currently 960 due to new players missing a LAN
+            mysql_cmd.CommandText = "INSERT INTO players (id, username, elo)" + "VALUES ('" + id + "', '" + player + "', '" + elo + "')";
             mysql_cmd.ExecuteNonQuery();
             mysql_conn.Close();
         }
@@ -457,7 +478,7 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT teamName FROM teams5v5"; // WHERE id = " + id;
+            mysql_cmd.CommandText = "SELECT teamName FROM teams5v5 WHERE isDeleted = '" + 0 + "'"; // WHERE id = " + id;
             mysql_datareader = mysql_cmd.ExecuteReader();
             while (mysql_datareader.Read())
             {
@@ -476,7 +497,7 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT teamName FROM teams3v3"; // WHERE id = " + id;
+            mysql_cmd.CommandText = "SELECT teamName FROM teams3v3 WHERE isDeleted = '" + 0 + "'"; // WHERE id = " + id;
             mysql_datareader = mysql_cmd.ExecuteReader();
             while (mysql_datareader.Read())
             {
@@ -495,7 +516,7 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT username FROM players"; // WHERE id = " + id;
+            mysql_cmd.CommandText = "SELECT username FROM players ORDER BY elo DESC, username ASC";
             mysql_datareader = mysql_cmd.ExecuteReader();
             while (mysql_datareader.Read())
             {
@@ -505,6 +526,42 @@ namespace SHSU_ELO_Project
             mysql_datareader.Close();
             mysql_conn.Close();
             return listOfPlayers;
+        }
+
+        public List<string> populateEloBox()
+        {
+            string name = "";
+            List<string> listOfPlayers = new List<string>();
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            mysql_cmd.CommandText = "SELECT elo FROM players ORDER BY elo DESC, username ASC";
+            mysql_datareader = mysql_cmd.ExecuteReader();
+            while (mysql_datareader.Read())
+            {
+                name = mysql_datareader.GetString(0);
+                listOfPlayers.Add(name);
+            }
+            mysql_datareader.Close();
+            mysql_conn.Close();
+            return listOfPlayers;
+        }
+
+        public int newPlayerElo()
+        {
+            int elo = 0;
+            mysql_conn = new MySqlConnection(connectionString);
+            mysql_conn.Open();
+            mysql_cmd = mysql_conn.CreateCommand();
+            mysql_cmd.CommandText = "SELECT elo FROM newPlayerElo";
+            mysql_datareader = mysql_cmd.ExecuteReader();
+            while (mysql_datareader.Read())
+            {
+                elo = mysql_datareader.GetInt32(0);
+            }
+            mysql_datareader.Close();
+            mysql_conn.Close();
+            return elo;
         }
 
         public string read_data(string cmd)
