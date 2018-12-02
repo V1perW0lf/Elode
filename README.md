@@ -1,1 +1,2 @@
 # Elode
+Elode is a tool that anyone can use to track the competitive skill of whatever player they are interested in. This is meant for coaches to gauge how well their players are doing, but can be used for other purposes such as tournaments! Simply enter a player and have them compete against other players or put several players onto teams and see who comes out victorious! This tool is currently centered around League of Legends but may expand to other games in the near future.
