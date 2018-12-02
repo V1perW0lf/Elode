@@ -33,6 +33,9 @@
             this.playerUsernameBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.PlayerEloMessage = new System.Windows.Forms.Label();
+            this.EloBox = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.EloBox)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
@@ -81,11 +84,40 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "LoL Username:";
             // 
+            // PlayerEloMessage
+            // 
+            this.PlayerEloMessage.AutoSize = true;
+            this.PlayerEloMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayerEloMessage.Location = new System.Drawing.Point(132, 340);
+            this.PlayerEloMessage.Name = "PlayerEloMessage";
+            this.PlayerEloMessage.Size = new System.Drawing.Size(203, 16);
+            this.PlayerEloMessage.TabIndex = 10;
+            this.PlayerEloMessage.Text = "Player will come in with an elo of: ";
+            // 
+            // EloBox
+            // 
+            this.EloBox.Location = new System.Drawing.Point(341, 336);
+            this.EloBox.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.EloBox.Name = "EloBox";
+            this.EloBox.Size = new System.Drawing.Size(109, 20);
+            this.EloBox.TabIndex = 12;
+            this.EloBox.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
             // AddPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.EloBox);
+            this.Controls.Add(this.PlayerEloMessage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.playerUsernameBox);
@@ -95,6 +127,8 @@
             this.Name = "AddPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "addPlayer";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddPlayer_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.EloBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,5 +141,7 @@
         private System.Windows.Forms.TextBox playerUsernameBox;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PlayerEloMessage;
+        private System.Windows.Forms.NumericUpDown EloBox;
     }
 }
