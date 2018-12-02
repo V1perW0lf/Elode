@@ -48,3 +48,7 @@ C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Proj
 C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Project\obj\Release\ElodeProject.csproj.GenerateResource.Cache
 C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Project\obj\Release\SHSU_ELO_Project.exe
 C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Project\obj\Release\SHSU_ELO_Project.pdb
+C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Project\bin\Release\SHSU_ELO_Project.exe.manifest
+C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Project\bin\Release\SHSU_ELO_Project.application
+C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Project\obj\Release\SHSU_ELO_Project.exe.manifest
+C:\Users\CJ\documents\visual studio 2015\Projects\SHSU_ELO_Project\SHSU_ELO_Project\obj\Release\SHSU_ELO_Project.application
