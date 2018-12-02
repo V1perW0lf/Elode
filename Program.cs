@@ -28,7 +28,7 @@ namespace SHSU_ELO_Project
             {
                 if(MessageBox.Show("Your client is not the latest version. Click \"OK\" to update to the latest version of the software.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    System.Diagnostics.Process.Start("https://drive.google.com/file/d/0B-YWY2xC-C_uSTZBWDBfZnV0OTA/view");
+                    System.Diagnostics.Process.Start("https://github.com/V1perW0lf/Elode/releases/download/1.0/ElodeSetup.msi");
                 }
                 Application.Exit();
             }
