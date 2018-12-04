@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SHSU_ELO_Project
 {
@@ -24,11 +25,11 @@ namespace SHSU_ELO_Project
                 Application.Exit();
             }
             // Check for latest version
-            else if (sql.checkVersion() != 11)
+            else if (sql.checkVersion() != 12)
             {
                 if(MessageBox.Show("Your client is not the latest version. Click \"OK\" to update to the latest version of the software.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    System.Diagnostics.Process.Start("https://github.com/V1perW0lf/Elode/releases/download/1.0/ElodeSetup.msi");
+                    System.Diagnostics.Process.Start("https://v1perw0lf.github.io/Elode/");
                 }
                 Application.Exit();
             }
