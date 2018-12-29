@@ -12,8 +12,8 @@ namespace SHSU_ELO_Project
     {
 
         // location of the database
-        readonly string connectionString = "server=50.24.236.179;database=shsuelo;uid=shsucamp;pwd=camppassword;connection timeout=2";
-        
+        readonly string connectionString = "server=99.26.184.205;database=shsuelo;uid=shsucamp;pwd=camppassword;connection timeout=2"; //50.24.236.179  and 2600:1700:d730:b870:93c:f006:130e:91aa
+
         // Used to apply SQL commands to database
         MySqlCommand mysql_cmd;
 
