@@ -25,7 +25,7 @@ namespace SHSU_ELO_Project
                 Application.Exit();
             }
             // Check for latest version
-            else if (sql.checkVersion() != 13)
+            else if (sql.checkVersion() != 14)
             {
                 if(MessageBox.Show("Your client is not the latest version. Click \"OK\" to update to the latest version of the software.", "Elode", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
