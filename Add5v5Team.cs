@@ -15,7 +15,6 @@ namespace SHSU_ELO_Project
     {
 
         string coachName = "";
-        string space = " ";
         SQLCode sql = new SQLCode();
 
         public Add5v5Team()
@@ -23,20 +22,11 @@ namespace SHSU_ELO_Project
             InitializeComponent();
             coachNameLabel.Hide();
             coachNameBox.Hide();
+
             List<string> playerList = sql.populatePlayerBox();
-            List<string> eloList = sql.populateEloBox();
             for (int i = 0; i < playerList.Count; i++)
             {
-                //DO THIS BETTER PLEASE
-                /*if (sql.findElo(playerList[i]).ToString().Length < 4)
-                {
-                    space = "   ";
-                }
-                else
-                {
-                    space = " ";
-                }*/
-                playerListBox.Items.Add(eloList[i] + space + playerList[i]);
+                playerListBox.Items.Add(playerList[i]);
             }
         }
 

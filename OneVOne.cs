@@ -14,17 +14,17 @@ namespace SHSU_ELO_Project
     {
 
         SQLCode sql = new SQLCode();
-        string space = " ";
 
         public OneVOne()
         {
             InitializeComponent();
-            List<string> playerList = sql.populatePlayerBox();
-            List<string> eloList = sql.populateEloBox();    
+
+            List <string> playerList = sql.populatePlayerBox();
             for (int i = 0; i < playerList.Count; i++)
             {
-                playerListBox.Items.Add(eloList[i] + space + playerList[i]);
+                playerListBox.Items.Add(playerList[i]);
             }
+           
         }
 
         private void addPlayerButton_Click(object sender, EventArgs e)

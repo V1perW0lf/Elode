@@ -455,7 +455,6 @@ namespace SHSU_ELO_Project
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            // Default value for this is 1000. Is currently 960 due to new players missing a LAN
             mysql_cmd.CommandText = "INSERT INTO players (id, username, elo)" + "VALUES ('" + id + "', '" + player + "', '" + elo + "')";
             mysql_cmd.ExecuteNonQuery();
             mysql_conn.Close();
@@ -512,35 +511,18 @@ namespace SHSU_ELO_Project
         public List<string> populatePlayerBox()
         {
             string name = "";
+            string elo = "";
             List<string> listOfPlayers = new List<string>();
             mysql_conn = new MySqlConnection(connectionString);
             mysql_conn.Open();
             mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT username FROM players ORDER BY elo DESC, username ASC";
+            mysql_cmd.CommandText = "SELECT username, elo FROM players ORDER BY elo DESC, username ASC";
             mysql_datareader = mysql_cmd.ExecuteReader();
             while (mysql_datareader.Read())
             {
                 name = mysql_datareader.GetString(0);
-                listOfPlayers.Add(name);
-            }
-            mysql_datareader.Close();
-            mysql_conn.Close();
-            return listOfPlayers;
-        }
-
-        public List<string> populateEloBox()
-        {
-            string name = "";
-            List<string> listOfPlayers = new List<string>();
-            mysql_conn = new MySqlConnection(connectionString);
-            mysql_conn.Open();
-            mysql_cmd = mysql_conn.CreateCommand();
-            mysql_cmd.CommandText = "SELECT elo FROM players ORDER BY elo DESC, username ASC";
-            mysql_datareader = mysql_cmd.ExecuteReader();
-            while (mysql_datareader.Read())
-            {
-                name = mysql_datareader.GetString(0);
-                listOfPlayers.Add(name);
+                elo = mysql_datareader.GetString(1);
+                listOfPlayers.Add(elo + " " + name);
             }
             mysql_datareader.Close();
             mysql_conn.Close();
