@@ -31,42 +31,30 @@ namespace SHSU_ELO_Project
         private void addPlayerButton_Click(object sender, EventArgs e)
         {
 
-            //var api = RiotApi.GetInstance("RGAPI-C3673AEB-F562-4992-9629-3C47741A6A86");
             errorLabel.Text = "";
 
             try
             {
-
-                //var summoner = api.GetSummoner(RiotSharp.Region.na, playerUsernameBox.Text);
-
-                try
+                if(playerUsernameBox.Text.Contains(" "))
                 {
-                    if(playerUsernameBox.Text.Contains(" "))
-                    {
-                        errorLabel.Text = "Usernames cannot contain a space! Use _ instead";
-                        errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
-                    }
-                    else
-                    {
-                        int count = sql.count("players", "username", "");
-                        sql.addPlayer(playerUsernameBox.Text, count, (int)EloBox.Value);
-
-                        errorLabel.Text = "Player successfully added";
-                        errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
-                    }
-                }
-                catch
-                {
-                    errorLabel.Text = "Player already exists in database";
+                    errorLabel.Text = "Usernames cannot contain a space! Use _ instead";
                     errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
                 }
-                
+                else
+                {
+                    int count = sql.count("players", "username", "");
+                    sql.addPlayer(playerUsernameBox.Text, count, (int)EloBox.Value);
+
+                    errorLabel.Text = "Player successfully added";
+                    errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
+                }
             }
             catch
             {
-                errorLabel.Text = "Username incorrect";
+                errorLabel.Text = "Player already exists in database";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 390);
             }
+
 
         }
 

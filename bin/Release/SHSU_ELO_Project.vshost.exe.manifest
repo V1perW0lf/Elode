@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SHSU_ELO_Project.exe" size="78736">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SHSU_ELO_Project.exe" size="78224">
       <assemblyIdentity name="SHSU_ELO_Project" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ay6ROoOtBVmLg2XqxObFWU/q6N25NlrsRbd0gpaastY=</dsig:DigestValue>
+        <dsig:DigestValue>y2lTao2VcFnhkIGbAMzmnL7wG2HgucM83yypVbdcrj8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
