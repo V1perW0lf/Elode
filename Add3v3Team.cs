@@ -42,14 +42,14 @@ namespace SHSU_ELO_Project
             //addingLabel.Text = "Adding...";
 
             //If input is valid, attempt to add team
-            if (!checkForValidInput())
+            if (isValidInput())
             {
                 removeEloFromCheckBoxString();
             }
             
         }
 
-        private Boolean checkForValidInput()
+        private Boolean isValidInput()
         {
 
             if (teamNameBox.Text == "")
@@ -57,37 +57,37 @@ namespace SHSU_ELO_Project
                 errorLabel.Text = "Please enter a team name";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (teamNameBox.Text.Length > 15)
             {
                 errorLabel.Text = "Team names but be 15 characters or less";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (coachNameBox.Text.Length > 15)
             {
                 errorLabel.Text = "Coach names must be 15 characters or less";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (sql.findTeam3v3(teamNameBox.Text).ToLower() == teamNameBox.Text.ToLower())
             {
                 errorLabel.Text = "A team with that name already exists";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (playerListBox.CheckedItems.Count != 3)
             {
                 errorLabel.Text = "You must have exactly 3 names checked";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
 
         }
 

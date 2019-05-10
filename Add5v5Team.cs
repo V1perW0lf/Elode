@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using RiotSharp;
 
 namespace SHSU_ELO_Project
 {
@@ -35,7 +29,7 @@ namespace SHSU_ELO_Project
             Application.Exit();
         }
 
-        private Boolean checkForValidInput()
+        private Boolean isValidInput()
         {
 
             if (teamNameBox.Text == "")
@@ -43,37 +37,37 @@ namespace SHSU_ELO_Project
                 errorLabel.Text = "Please enter a team name";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (teamNameBox.Text.Length > 15)
             {
                 errorLabel.Text = "Team names but be 15 characters or less";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (coachNameBox.Text.Length > 15)
             {
                 errorLabel.Text = "Coach names but be 15 characters or less";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (sql.findTeam5v5(teamNameBox.Text).ToLower() == teamNameBox.Text.ToLower())
             {
                 errorLabel.Text = "A team with that name already exists";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
                 addingLabel.Text = "";
-                return true;
+                return false;
             }
             else if (playerListBox.CheckedItems.Count != 5)
             {
                 errorLabel.Text = "You must have exactly 5 names checked";
                 errorLabel.Location = new Point((ActiveForm.Width - errorLabel.Width) / 2, 465);
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
 
         }
 
@@ -154,7 +148,7 @@ namespace SHSU_ELO_Project
 
             errorLabel.Text = "";
 
-            if (!checkForValidInput())
+            if (isValidInput())
             {
                 removeEloFromCheckBoxString();
             }        
